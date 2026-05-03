@@ -1,8 +1,12 @@
 <h1 align="center">Hey 👋What's Up?</h1>
 
+<p align="center">
+  <img src="nameplate.svg" />
+</p>
+
 ###
 
-<p align="center">My name is Mohab, I am a software engineering student at the German International University (GIU)</p>
+<h2 align="center">My name is Mohab, I am a software engineering student at the German International University (GIU)</h2>
 
 ###
 

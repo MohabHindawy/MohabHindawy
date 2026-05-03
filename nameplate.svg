@@ -1,0 +1,108 @@
+<svg width="1000" height="260" viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Neon Gradient -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%">
+        <animate attributeName="stop-color" values="#00f0ff;#8a2be2;#ff0040;#00f0ff" dur="8s" repeatCount="indefinite"></animate>
+      </stop>
+      <stop offset="50%">
+        <animate attributeName="stop-color" values="#8a2be2;#ff0040;#00f0ff;#8a2be2" dur="8s" repeatCount="indefinite"></animate>
+      </stop>
+      <stop offset="100%">
+        <animate attributeName="stop-color" values="#ff0040;#00f0ff;#8a2be2;#ff0040" dur="8s" repeatCount="indefinite"></animate>
+      </stop>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+
+    <!-- Lightning Glow -->
+    <filter id="lightningGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+
+    <!-- Scanlines -->
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="black" opacity="0.2"></rect>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#05050a"></rect>
+
+  <!-- Border -->
+  <rect x="15" y="15" width="970" height="230" rx="20" fill="none" stroke="url(#neon)" stroke-width="3" filter="url(#glow)"></rect>
+
+  <!-- ⚡ Lightning Left -->
+  <polyline points="20,80 40,90 30,110 50,120 35,140" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#lightningGlow)" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" dur="1.5s" repeatCount="indefinite"></animate>
+  </polyline>
+
+  <!-- ⚡ Lightning Right -->
+  <polyline points="980,180 960,170 970,150 950,140 965,120" fill="none" stroke="#ff0040" stroke-width="2" filter="url(#lightningGlow)" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" dur="1.8s" repeatCount="indefinite"></animate>
+  </polyline>
+
+  <!-- ⚡ Top Flicker -->
+  <polyline points="200,20 300,25 280,35 400,30" fill="none" stroke="#8a2be2" stroke-width="1.5" filter="url(#lightningGlow)" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"></animate>
+  </polyline>
+
+  <!-- HUD Circles -->
+  <g transform="translate(120,130)">
+    <circle r="40" stroke="url(#neon)" stroke-width="2" fill="none"></circle>
+    <circle r="30" stroke="url(#neon)" stroke-width="1" fill="none" stroke-dasharray="4 6">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"></animateTransform>
+    </circle>
+  </g>
+
+  <g transform="translate(880,130)">
+    <circle r="40" stroke="url(#neon)" stroke-width="2" fill="none"></circle>
+    <circle r="30" stroke="url(#neon)" stroke-width="1" fill="none" stroke-dasharray="4 6">
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="6s" repeatCount="indefinite"></animateTransform>
+    </circle>
+  </g>
+
+  <!-- Name -->
+  <text x="50%" y="55%" text-anchor="middle" font-family="Orbitron, Arial" font-size="64" fill="url(#neon)" filter="url(#glow)">
+    MOHAB HINDAWY
+    <animate attributeName="opacity" values="0.75;1;0.75" dur="2.5s" repeatCount="indefinite"></animate>
+  </text>
+
+  <!-- Glitch -->
+  <text x="50%" y="55%" text-anchor="middle" font-family="Orbitron, Arial" font-size="64" fill="#ff0040" opacity="0.1">
+    MOHAB HINDAWY
+    <animate attributeName="x" values="500;497;503;500" dur="0.12s" repeatCount="indefinite"></animate>
+  </text>
+
+  <!-- Energy Sweep -->
+  <rect x="-300" y="0" width="300" height="260" fill="url(#neon)" opacity="0.08">
+    <animate attributeName="x" values="-300;1300" dur="4s" repeatCount="indefinite"></animate>
+  </rect>
+
+  <!-- Particles -->
+  <circle cx="200" cy="260" r="2" fill="#00f0ff">
+    <animate attributeName="cy" values="260;-10" dur="5s" repeatCount="indefinite"></animate>
+  </circle>
+  <circle cx="600" cy="260" r="2" fill="#8a2be2">
+    <animate attributeName="cy" values="260;-10" dur="6s" repeatCount="indefinite"></animate>
+  </circle>
+  <circle cx="850" cy="260" r="2" fill="#ff0040">
+    <animate attributeName="cy" values="260;-10" dur="7s" repeatCount="indefinite"></animate>
+  </circle>
+
+  <!-- Scanlines -->
+  <rect width="100%" height="100%" fill="url(#scan)" opacity="0.15"></rect>
+
+</svg>
